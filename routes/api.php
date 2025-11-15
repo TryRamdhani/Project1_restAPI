@@ -12,7 +12,7 @@ Route::apiResource('pelanggan', PelangganController::class);
 
 Route::apiResource('barang', BarangController::class);
 
-Route::apiResource('penjualan', PenjualanController::class);
+// Route::apiResource('penjualan', PenjualanController::class);
 
 Route::get('/itempenjualan', [ItemPenjualanController::class, 'index']);
 Route::post('/itempenjualan', [ItemPenjualanController::class, 'store']);
@@ -20,6 +20,15 @@ Route::post('/itempenjualan', [ItemPenjualanController::class, 'store']);
 Route::get('/itempenjualan/{nota}/{kode_barang}', [ItemPenjualanController::class, 'show']);
 Route::put('/itempenjualan/{nota}/{kode_barang}', [ItemPenjualanController::class, 'update']);
 Route::delete('/itempenjualan/{nota}/{kode_barang}', [ItemPenjualanController::class, 'destroy']);
+
+Route::apiResource('penjualan', PenjualanController::class)->only(['index', 'store', 'show', 'destroy']);
+Route::apiResource('item-penjualan', ItemPenjualanController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
+
+
+
+Route::get('/penjualan', [PenjualanController::class, 'index']);
+Route::get('/penjualan/{id}', [PenjualanController::class, 'show']);
+
 
 
 

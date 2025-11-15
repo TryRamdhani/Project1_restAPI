@@ -14,6 +14,8 @@ class Barang extends Model
 
     protected $fillable = ['kode_barang', 'nama', 'kategori', 'harga'];
 
+
+
     public function item()
     {
         return $this->hasMany(ItemPenjualan::class, 'kode_barang');

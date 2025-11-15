@@ -27,6 +27,12 @@ class PelangganController extends Controller
     }
 
 
+    public function show($id)
+    {
+        $barang = Pelanggan::findOrFail($id);
+        return response()->json($barang);
+    }
+
     public function update(Request $request, $id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
